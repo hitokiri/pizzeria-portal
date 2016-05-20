@@ -4,9 +4,9 @@ ini_set('display_errors', 1);
  class Database extends PDO { 
    private $tipo_de_base = 'mysql';
    private $host = 'localhost';
-   private $nombre_de_base = 'angular';
+   private $nombre_de_base = 'pizzeria';
    private $usuario = 'root';
-   private $contrasena = 'root'; 
+   private $contrasena = 'lasttip';
    public function __construct() {
       //Sobreescribo el método constructor de la clase PDO.
       try{
