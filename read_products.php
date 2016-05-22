@@ -32,9 +32,14 @@ if($num>0){
          
         $data .= '{';
             $data .= '"id":"'  . $id . '",';
-            $data .= '"name":"'   . $name . '",';
-            $data .= '"description":"'   . html_entity_decode($description) . '",';
-            $data .= '"price":"' . $price . '"';
+            $data .= '"nombre":"'   . $nombre . '",';
+            $data .= '"precio": "' . $precio . '","';
+            $data .= '"codigo_tipo":' . $codigo_tipo . '","';
+            $data .= '"descripcion_producto":' . $decripcion_producto . '","';
+            $data .= '"ingredientes":' . $ingredientes . '","';
+            $data .= '"img_producto":' . $img_producto . '","';
+            $data .= '"deleted":' . $deleted . '","';
+            $data .= '"lastmodifiqued":' . $lastmodifiqued . '","';
         $data .= '}'; 
          
         $data .= $x<$num ? ',' : ''; 

@@ -3,14 +3,18 @@
 class Product {
   // database connection and table name
     private $conn;
-    private $table_name = "products";
+    private $table_name = "Productos";
       
     // object properties
     public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $created;
+    public $nombre;
+    public $precio;
+    public $codigo_tipo;
+    public $descripcion_producto;
+    public $ingredientes;
+    public $img_producto;
+    public $deleted;
+    public $lastmodififiqued;
       
     // constructor with $db as database connection
     public function __construct($db){
@@ -24,16 +28,20 @@ class Product {
             $query = "INSERT INTO 
                         " . $this->table_name . "
                     SET 
-                        name=:name, price=:price, description=:description, created=:created";
+                        nombre=:nombre, precio=:precio, codigo_tipo=:codigo_tipo, descripcion_producto=:descripcion_producto, ingredientes=:ingredientes,
+                        img_producto=:img_producto,deletes=:deleted,lastmodfiqued=:lastmodifiqied";
 
             // prepare query
             $stmt = $this->conn->prepare($query);
 
             // bind values
-            $stmt->bindParam(":name", $this->name);
-            $stmt->bindParam(":price", $this->price);
-            $stmt->bindParam(":description", $this->description);
-            $stmt->bindParam(":created", $this->created);
+            $stmt->bindParam(":nombre", $this->nombre);
+            $stmt->bindParam(":precio", $this->precio);
+            $stmt->bindParam(":descripcion_producto", $this->descripcion_producto);
+            $stmt->bindParam(":ingredientes", $this->ingredientes);
+            $stmt->binParam(":img_producto", $this->img_producto);
+            $stmt->binParam("deletes", $this->deleted);
+            $stmt->binParam("lasmodifiqued", $this->lastmodififiqued);
 
             // execute query
             if($stmt->execute()){
@@ -93,9 +101,14 @@ class Product {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // set values to object properties
-            $this->name = $row['name'];
-            $this->price = $row['price'];
-            $this->description = $row['description'];
+            $this->nombre = $row['nombre'];
+            $this->precio = $row['precio'];
+            $this->codigo_tipo = $row['codigo_tipo'];
+            $this->descripcion_producto = $row['descripcion_producto'];
+            $this->ingredientes = $row['ingredientes'];
+            $this->img_producto = $row['img_producto'];
+            $this->deleted = $row['deleted'];
+            $this->lastmodififiqued = $row['lastmodifiqued'];
         }
         
 // update the product
@@ -105,9 +118,14 @@ function update(){
     $query = "UPDATE 
                 " . $this->table_name . "
             SET 
-                name = :name, 
-                price = :price, 
-                description = :description 
+                nombre = :nombre,
+                precio = :precio,
+                codigo_tipo = :codigo_tipo,
+                descripcion_producto = :descripcion_producto,
+                 ingredientes = :ingredientes,
+                 img_producto = :img_producto,
+                 deleted = :deleted,
+                 lastmodifiqued = :lastmodifiqued
             WHERE
                 id = :id";
  
@@ -115,9 +133,13 @@ function update(){
     $stmt = $this->conn->prepare($query);
  
     // bind new values
-    $stmt->bindParam(':name', $this->name);
-    $stmt->bindParam(':price', $this->price);
-    $stmt->bindParam(':description', $this->description);
+    $stmt->bindParam(':nombre', $this->nombre);
+    $stmt->bindParam(':precio', $this->precio);
+    $stmt->bindParam(':descripcion_producto', $this->descripcion_producto);
+    $stmt->bindParam(':ingredientes', $this->ingredientes);
+    $stmt->bindParam(':img_producto', $this->img_producto);
+    $stmt->bindParam(':deleted', $this->deleted);
+    $stmt->bindParam(':lastmodifiqued', $this->lastmodififiqued);
     $stmt->bindParam(':id', $this->id);
      
     // execute the query
