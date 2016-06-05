@@ -14,7 +14,7 @@ class Product {
     public $ingredientes;
     public $img_producto;
     public $deleted;
-    public $lastmodififiqued;
+    public $lastmodifiqued;
       
     // constructor with $db as database connection
     public function __construct($db){
@@ -40,8 +40,8 @@ class Product {
             $stmt->bindParam(":descripcion_producto", $this->descripcion_producto);
             $stmt->bindParam(":ingredientes", $this->ingredientes);
             $stmt->binParam(":img_producto", $this->img_producto);
-            $stmt->binParam("deletes", $this->deleted);
-            $stmt->binParam("lasmodifiqued", $this->lastmodififiqued);
+            $stmt->binParam("deleted", $this->deleted);
+            $stmt->binParam("lastmodifiqued", $this->lastmodififiqued);
 
             // execute query
             if($stmt->execute()){
@@ -152,7 +152,7 @@ function update(){
 
 // delete the product
 function delete(){
- 
+
     // delete query
     $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
      
@@ -170,3 +170,4 @@ function delete(){
     }
 }
 }
+
