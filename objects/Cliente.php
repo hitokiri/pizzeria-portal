@@ -97,7 +97,7 @@ class Cliente{
                 FROM
                 ". $this->table_name. "
                 WHERE
-                ID = " . $this->id . "
+                id = " . $this->id . "
                 LIMIT
                 0,1";
         //preparando el statemente query
@@ -193,7 +193,7 @@ class Cliente{
 
     function  delete(){
         //consulta para borrar el registro
-        $query = "DELETE FORM" . $this->table_name . "where id=?";
+        $query = "DELETE FROM" . $this->table_name . "where id=?";
         //preparando la query
         $stmt=$this->conn->prepare($query);
 
