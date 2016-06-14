@@ -4,9 +4,9 @@
  class Database extends PDO { 
    private $tipo_de_base = 'mysql';
    private $host = 'localhost';
-   private $nombre_de_base = '';
-   private $usuario = '';
-   private $contrasena = '';
+   private $nombre_de_base = 'pizzeria';
+   private $usuario = 'root';
+   private $contrasena = 'lasttip';
    public function __construct() {
       //Sobreescribo el método constructor de la clase PDO.
       try{
