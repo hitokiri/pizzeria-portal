@@ -40,30 +40,30 @@
 <input type="text" ng-model="search" class="form-control" placeholder="Search product...">
  
 <!-- table that shows product record list -->
-<table class="hoverable bordered">
-    <thead>
-        <tr>
-            <th class="text-align-center">ID</th>
-            <th class="width-30-pct">Name</th>
-            <th class="width-30-pct">Description</th>
-            <th class="text-align-center">Price</th>
-            <th class="text-align-center">Action</th>
-        </tr>
-    </thead>
-    <tbody ng-init="getAll()">
-        <tr ng-repeat="d in namess | filter:search"><!--ng-repeat es un foreach-->
-            <td class="text-align-center">{{ d.id }}</td>
-            <td>{{ d.name }}</td>
-            <td>{{ d.description }}</td>
-            <td class="text-align-center">{{ d.price }}</td>
-            <td>
-                <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">edit</i>Edit</a>
-                <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">delete</i>Delete</a>
-            </td>
-        </tr>
-    </tbody>
-</table>            
-             <!-- floating button for creating product -->
+            <table class="hoverable bordered">
+                <thead>
+                <tr>
+                    <th class="text-align-center">ID</th>
+                    <th class="width-30-pct">Name</th>
+                    <th class="width-30-pct">Description</th>
+                    <th class="text-align-center">Price</th>
+                    <th class="text-align-center">Action</th>
+                </tr>
+                </thead>
+                <tbody ng-init="getAll()">
+                <tr ng-repeat="d in namess | filter:search"><!--ng-repeat es un foreach-->
+                    <td class="text-align-center">{{ d.id }}</td>
+                    <td>{{ d.name }}</td>
+                    <td>{{ d.description }}</td>
+                    <td class="text-align-center">{{ d.price }}</td>
+                    <td>
+                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">edit</i>Edit</a>
+                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">delete</i>Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- floating button for creating product -->
 <div class="fixed-action-btn" style="bottom:45px; right:24px;">
     <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal-product-form" ng-click="showCreateForm()"><i class="large material-icons">add</i></a>
 </div>

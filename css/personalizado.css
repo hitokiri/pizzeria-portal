@@ -1,0 +1,97 @@
+.fondoLogin{
+	background-image: url("../img/fondologin.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.contenedorLogin{
+	background-color: #990000;
+	color: white;
+	display: block;
+	width: 462px;
+	height: 102px;
+	opacity: 0.5;
+	vertical-align: center;
+
+}
+.fondo_combos{
+	/*background: #38CE64;*/
+	background: #03150B;
+	margin: 0;
+}
+.cabeceramenus{
+	/*background: #990000;*/
+	background: #ff0000;
+	height: 63px;
+	margin: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.itemCabecera{
+	color: #ffff33;
+	vertical-align: center;
+	 width: 250px;
+  padding: 10px 25px 10px 25px;
+  font-family: Arial;
+  font-size: 16px;
+  text-decoration: none;
+
+line-height: 50px;
+}
+a.itemCabecera:hover {
+    background-color: #98ba3f;
+}
+.muestracombos{
+	width: 243px;
+	height:261px;
+	display: inline-block;
+	background:#ffffff;
+	border: 50px;
+	border-radius: 3%;
+	border-color: #663300;
+	margin: 10px;
+	text-align: center;
+}
+.cintacombos{
+	/*background: #663300;*/
+	background: #ff0000;
+	width: 243px;
+	height: 23px;
+	text-align: center;
+}
+.itemcintascombos{
+	color: #ffff33;
+
+}
+.imgcombos{
+	width: 178px;
+	height: 133px;
+}
+.itemdescripcioncombo{
+	color: #663300;
+	text-align: left;
+	font-size: bold;
+	display: inline;
+}
+
+.footer{
+	/*background:  #990000;*/
+	background: #ff0000;
+	height: 63px;
+	bottom: 0;
+}
+.conteiner{
+	display: block;
+	width: 1000px;
+
+}
+/*clients reglas */
+.fondoCliente{
+	background-image: url("../img/fondoclaro.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.tituloFormulario{
+	font-size: 24px;
+	text-align: center;
+}

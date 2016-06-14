@@ -1,7 +1,56 @@
 var app = angular.module('myApp', []);
 
-app.controller('productsCtrl', function($scope, $http) {
-    $scope.id = "";
+app.controller('clientesCtrl', function($scope, $http) {
+    $scope.id;
+    $scope.idCliente;
+    $scope.nombres;
+    $scope.apellidos;
+    $scope.edad;
+    $scope.sexo;
+    $scope.direccion;
+    $scope.dui;
+    $scope.nit;
+    $scope.telefonoCasa;
+    $scope.telefonoMovil;
+    $scope.email;
+    $scope.tipoCliente;
+    $scope.municipio;
+    $scope.departamento;
+    $scope.foto_cliente;
+    $scope.deleted;
+    $scope.lastmodifiqued;
+    $scope.fechaRegistro;
+
+    $scope.guardarClientes=function(){
+        var clientes={
+            "id":$scope.id,
+            "idCliente":$scope.idCliente,
+            "nombres":$scope.nombres,
+            "apellidos":$scope.apellidos,
+            "edad":$scope.edad,
+            "sexo":$scope.sexo,
+            "direccion":$scope.direccion,
+            "dui":$scope.dui,
+            "nit":$scope.nit,
+            "telefonoCasa":$scope.telefonoCasa,
+            "telefonoMovil":$scope.telefonoMovil,
+            "email":$scope.email,
+            "tipoCliente":$scope.tipocliente,
+            "municipio":$scope.municipio,
+            "departamento":$scope.departamento,
+            "foto_cliente":$scope.foto_cliente,
+            "deleted":$scope.deleted,
+            "lastmodifiqued":$scope.lastmodifiqued,
+            "fechaRegistro":$scope.fechaRegistro
+        }
+        $http.post('http://localhost/pizzeria/guardar_cliente.php',JSON.stringify(clientes)
+        ).success(function (data, status, headers, config) {
+            console.log(data);
+        }).error(function(data, status, headers, config){
+            console.log(data);
+        });
+    }
+ /*   $scope.id = "";
     $scope.name = "";
     $scope.description = "";
     $scope.price = "";
@@ -152,7 +201,7 @@ $scope.deleteProduct = function(id){
         });
     }
 }
-
+*/
 
 });
 

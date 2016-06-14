@@ -8,7 +8,7 @@
 class Cliente{
     //Conexion a la base de datons
     private $conn;
-    private $table_name="Cliente";
+    private $table_name="Clientes";
     //atibutos de la tabla
     public $id;
     public $idCliente;
@@ -28,6 +28,7 @@ class Cliente{
     public $foto_cliente;
     public $deleted;
     public $lastmodifiqued;
+    public $fechaRegistro;
     //creando el constructor
     public function __construct($db)
     {
@@ -37,7 +38,9 @@ class Cliente{
     //metodo crear cliente
     public function create(){
         //insertando los registros a la tabla
-        $query= "INSERT INTO " . $this->table_name. " SET id=id, idCliente=idCliente, nombres=nombres, apellidos=apellidos, edad=edad, sexo=sexo, direccion=direccion, dui=dui, nit=nit, telefonoCasa=telefonoCasa, telefonoMovil=telefonoMovil, email=email, tipoCliente=tipoCliente, municipio=municipio, departamento=departamento, foto_cliente=foto_cliente, deleted=deleted, lastmodifiqued=lastmodifiqued";
+        $nombre = 'hiko';
+        $query= "INSERT INTO 
+                " . $this->table_name. " SET idCliente=:idCliente, nombres=:nombres, apellidos=:apellidos, edad=:edad, sexo=:sexo, direccion=:direccion, dui=:dui, nit=:nit, telefonoCasa=:telefonoCasa, telefonoMovil=:telefonoMovil, email=:email, tipoCliente=:tipoCliente, municipio=:municipio, departamento=:departamento, foto_cliente=:foto_cliente, deleted=:deleted, lastmodifiqued=:lastmodifiqued,fechaRegistro=:fechaRegistro";
         //preparando las consuslta
 
         $stmt= $this->conn->prepare($query);
@@ -60,6 +63,7 @@ class Cliente{
         $stmt->bindParam(":foto_cliente", $this->foto_cliente);
         $stmt->bindParam(":deleted", $this->deleted);
         $stmt->bindParam(":lastmodifiqued", $this->lastmodifiqued);
+        $stmt->bindParam(":fechaRegistro", $this->fechaRegistro);
 
         //ejecutando consulta
         if($stmt->execute()){
@@ -76,7 +80,7 @@ class Cliente{
     function  readAll(){
         //creando el select de la consulta
         $query ="SELECT
-                id, idCliente, nombres, apellidos,edad,sexo,direccion,dui,nit,telefonoCasa,telefonoMovil,email,tipoCliente,municipio,departamento,foto_cliente,deleted,lastmodifiqued
+                id, idCliente, nombres, apellidos,edad,sexo,direccion,dui,nit,telefonoCasa,telefonoMovil,email,tipoCliente,municipio,departamento,foto_cliente,deleted,lastmodifiqued,fechaRegistro
 
                 FROM
                   " . $this->table_name . "
@@ -93,7 +97,7 @@ class Cliente{
     //leer un solo producto para actualizarlo desde el form
     function  readOne(){
         $query = "SELECT
-                id, idCliente, nombres,apellidos,edad, sexo direccion, dui, nit, telefonoCasa,telefonoMovil, email, tipoCliente,  municipio, departamento, foto_cliente, deleted,lastmodifiqued
+                id, idCliente, nombres,apellidos,edad, sexo direccion, dui, nit, telefonoCasa,telefonoMovil, email, tipoCliente,  municipio, departamento, foto_cliente, deleted,lastmodifiqued,fechaRegistro
                 FROM
                 ". $this->table_name. "
                 WHERE
@@ -133,6 +137,7 @@ class Cliente{
         $this->foto_cliente=$row['foto_cliente'];
         $this->deleted=$row['deleted'];
         $this->lastmodifiqued=$row['lastmodifiqued'];
+        $this->fechaRegistro=$row['fechaRegistro'];
     }
     //actualizando los clientes
     function  update(){
@@ -156,7 +161,8 @@ class Cliente{
                     departamento= :departamento,
                     foto_cliente = :foto_cliente,
                     deleted = :deleted,
-                    lastmodifiqued= :lastmodifiqued
+                    lastmodifiqued= :lastmodifiqued,
+                    fechaRegistro= :fechaRegistro
                 WHERE
                     id= :id";
 
@@ -181,6 +187,7 @@ class Cliente{
         $stmt->bindParam(':foto_cliente',$this->foto_cliente);
         $stmt->bindParam(':deleted',$this->deleted);
         $stmt->bindParam(':lastmodifiqued',$this->lastmodifiqued);
+        $stmt->bindParam(':fechaRegistro', $this->fechaRegistro);
         $stmt->bindParam(':id',$this->id);
 
         //ejecutando la query
