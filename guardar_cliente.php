@@ -87,7 +87,7 @@ $cliente->foto_cliente = $datos->foto_cliente;
 $cliente->deleted = 0;
 $cliente->lastmodifiqued = $hoy;
 $cliente->fechaRegistro = $hoy;
-
+/*
 //creando el cliente
 if($cliente->create()){
     echo "Cliente Guardad";
@@ -95,4 +95,6 @@ if($cliente->create()){
 else {
     echo "No se pudo crear cliente";
 }
-//echo $datos->nombres;
+//echo $datos->nombres;}
+*/
+echo $cliente->create();

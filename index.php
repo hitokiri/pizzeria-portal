@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
       
-    <title>Read Products</title>
+    <title>Listado de Clientes</title>
      
     <!-- include material design CSS -->
     <link rel="stylesheet" href="libs/css/materialize/css/materialize.min.css" />
      
-    <!-- include material design icons -->
+    <!-- include material design icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
      
 </head>
 <!-- custom CSS -->
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="clientesCtrl">
 <style>
 .width-30-pct{
     width:30%;
@@ -32,40 +32,54 @@
 </style>
 <!-- page content and controls will be here -->
 
-<div class="container"  ng-controller="productsCtrl"> <!-- controlador -->
+<div class="container"  ng-controller="clientesCtrl"> <!-- controlador -->
     <div class="row">
         <div class="col s12">
-            <h4>Products</h4>
+            <h4>LISTADO DE CLIENTES</h4>
 <!-- used for searching the current list -->
-<input type="text" ng-model="search" class="form-control" placeholder="Search product...">
+<input type="text" ng-model="search" class="form-control" placeholder="Buscar Cliente...">
  
 <!-- table that shows product record list -->
-            <table class="hoverable bordered">
+            <table class="hoverable bordered" ng-init="leerTodosClientes()">
                 <thead>
                 <tr>
                     <th class="text-align-center">ID</th>
-                    <th class="width-30-pct">Name</th>
-                    <th class="width-30-pct">Description</th>
-                    <th class="text-align-center">Price</th>
-                    <th class="text-align-center">Action</th>
+                   <!-- <th class="text-align-center">IDCliente</th> -->
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th class="text-align-center">Edad</th>
+                    <th class="text-align-center">Sexo</th>
+                    <th >Dirección</th>
+                    <th class="text-align-center">DUI</th>
+                    <th class="text-align-center">NIT</th>
+                    <th class="text-align-center">Teléfono Casa</th>
+                    <th class="text-align-center">Teléfono Móvil</th>
                 </tr>
                 </thead>
-                <tbody ng-init="getAll()">
+                <tbody >
                 <tr ng-repeat="d in namess | filter:search"><!--ng-repeat es un foreach-->
-                    <td class="text-align-center">{{ d.id }}</td>
-                    <td>{{ d.name }}</td>
-                    <td>{{ d.description }}</td>
-                    <td class="text-align-center">{{ d.price }}</td>
+                    <td  class="text-align-center">{{ d.id }}</td>
+                    <!--<td>{{ d.idCliente }}</td> -->
+                    <td>{{ d.nombres }}</td>
+
+                    <td>{{d.apellidos}}</td>
+                    <td>{{d.edad}}</td>
+                    <td>{{d.sexo}}</td>
+                    <td>{{d.direccion}}</td>
+                    <td>{{d.dui}}</td>
+                    <td>{{d.nit}}</td>
+                    <td>{{d.telefonoCasa}}</td>
+                    <td>{{d.telefonoMovil}}</td>
                     <td>
-                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">edit</i>Edit</a>
-                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">delete</i>Delete</a>
+                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Editar</i>Editar</a>
+                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Borrar</i>Borrar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
             <!-- floating button for creating product -->
 <div class="fixed-action-btn" style="bottom:45px; right:24px;">
-    <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal-product-form" ng-click="showCreateForm()"><i class="large material-icons">add</i></a>
+    <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal1" ng-click="showCreateForm()"><i class="large material-icons">+</i></a>
 </div>
  
         </div> <!-- end col s12 -->
@@ -108,10 +122,16 @@
 <script src="libs/css/materialize/js/materialize.min.js"></script>
  
 <!-- include angular js -->
+<script src="lib/jquery-1.11.1.min.js"></script>
 <script src="libs/js/angular.min.js"></script>
 <script src="libs/js/Controller.js"></script>
+<script src="libs/js/materialize.min.js"></script>
 <script>
 // angular js codes will be here
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+});
 
 
 </script>

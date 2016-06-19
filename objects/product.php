@@ -59,7 +59,7 @@ class Product {
 
             // select all query
             $query = "SELECT 
-                        id, name, description, price, created 
+                        *
                     FROM 
                         " . $this->table_name . "
                     ORDER BY 

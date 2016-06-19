@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PIZZA PLANETA</title>
+    <link rel="stylesheet" href="../pizzeria/css/normalize.css.css">
+    <link rel="stylesheet" href="../pizzeria/css/personalizado.css">
+    <link rel="stylesheet" href="libs/css/materialize/css/materialize.min.css" />
+
+</head>
+<body class="fondoCliente" ng-app="myApp" ng-controller="clientesCtrl" ng-init="limpiarCampos()">
+<nav>
+    <div class="nav-wrapper red accent-4">
+        <a href="#" class="brand-logo">Inicio</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Salir</a></li>
+
+
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col s12  teal darken-4" ><span class=" white-text text-white tituloFormulario" size="30">REGISTRO DE PRODUCTOS</span></div>
+
+        <div class="col s12 teal white">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input  id="nombre" type="text" class="validate" ng-model="nombre">
+                    <label for="nombre">Nombre del Producto</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="precio" type="text" class="validate" ng-model="precio">
+                    <label for="precio">Precio</label>
+                </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="direccion"  name="direccion" cols="30" rows="10" class="materialize-textarea" ng-model="direccion"></textarea>
+                        <label for="direccion">Direccion</label>
+                    </div>
+                <div class="input-field col s12">
+                    <textarea id="ingredientes"  name="ingredientes" cols="30" rows="10" class="materialize-textarea" ng-model="direccion"></textarea>
+                    <label for="ingredientes">Ingredientes</label>
+                </div>
+
+            <button class="btn waves-effect waves-light teal darken-4" type="submit" ng-click="guardarClientes()">
+                <i class="material-icons right">Enviar</i>
+            </button>
+        </div>
+
+    </div>
+</div>
+</form>
+</div>
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="libs/js/angular.min.js"></script>
+<script src="libs/js/Controller.js"></script>
+<script src="libs/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+        $(".button-collapse").sideNav();
+    });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+</script>
+</body>
+</html>>

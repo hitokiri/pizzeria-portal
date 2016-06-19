@@ -1,26 +1,28 @@
 var app = angular.module('myApp', []);
 
 app.controller('clientesCtrl', function($scope, $http) {
-    $scope.id;
-    $scope.idCliente;
-    $scope.nombres;
-    $scope.apellidos;
-    $scope.edad;
-    $scope.sexo;
-    $scope.direccion;
-    $scope.dui;
-    $scope.nit;
-    $scope.telefonoCasa;
-    $scope.telefonoMovil;
-    $scope.email;
-    $scope.tipoCliente;
-    $scope.municipio;
-    $scope.departamento;
-    $scope.foto_cliente;
-    $scope.deleted;
-    $scope.lastmodifiqued;
-    $scope.fechaRegistro;
-
+    $scope.limpiarCampos=function(){
+    $scope.id="";
+    $scope.idCliente="";
+    $scope.nombres="";
+    $scope.apellidos="";
+    $scope.edad="";
+    $scope.sexo="";
+    $scope.direccion="";
+    $scope.dui="";
+    $scope.nit="";
+    $scope.telefonoCasa="";
+    $scope.telefonoMovil="";
+    $scope.email="";
+    $scope.tipoCliente="";
+    $scope.municipio="";
+    $scope.departamento="";
+    $scope.foto_cliente="";
+    $scope.deleted="";
+    $scope.lastmodifiqued="";
+    $scope.fechaRegistro="";
+    }
+    //lectura de todos los clientes para listado de mantenimiento
     $scope.guardarClientes=function(){
         var clientes={
             "id":$scope.id,
@@ -35,7 +37,7 @@ app.controller('clientesCtrl', function($scope, $http) {
             "telefonoCasa":$scope.telefonoCasa,
             "telefonoMovil":$scope.telefonoMovil,
             "email":$scope.email,
-            "tipoCliente":$scope.tipocliente,
+            "tipoCliente":$scope.tipoCliente,
             "municipio":$scope.municipio,
             "departamento":$scope.departamento,
             "foto_cliente":$scope.foto_cliente,
@@ -46,10 +48,23 @@ app.controller('clientesCtrl', function($scope, $http) {
         $http.post('http://localhost/pizzeria/guardar_cliente.php',JSON.stringify(clientes)
         ).success(function (data, status, headers, config) {
             console.log(data);
+            $scope.limpiarCampos();
         }).error(function(data, status, headers, config){
             console.log(data);
         });
     }
+
+    //funcion para lectura de todos los clientes
+    $scope.leerTodosClientes=function(){
+       $http.get("http://localhost/pizzeria/leerTodosClientes.php")
+
+            .success(function(response){
+                $scope.namess = response.record;
+                console.log($scope.namess);
+            });
+    }
+
+
  /*   $scope.id = "";
     $scope.name = "";
     $scope.description = "";
@@ -205,6 +220,17 @@ $scope.deleteProduct = function(id){
 
 });
 
+app.controller('productosCtrl', function($scope, $http){
+    //funcion para lectra de productos para listado
+
+    $scope.leerTodosProductos=function(){
+        $http.get("http://localhost/pizzeria/leerTodoProductos.php")
+            .success(function(response){
+                $scope.namess = response.record;
+                console.log($scope.namess);
+            });
+    }
+});
 // jquery codes will be here
 
 

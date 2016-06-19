@@ -55,7 +55,7 @@ class Cliente{
         $stmt->bindParam(":dui", $this->dui);
         $stmt->bindParam(":nit", $this->nit);
         $stmt->bindParam(":telefonoCasa", $this->telefonoCasa);
-        $stmt->bindParam(":telefonoMovil", $this->telfonoMovil);
+        $stmt->bindParam(":telefonoMovil", $this->telefonoMovil);
         $stmt->bindParam(":email", $this->email);
         $stmt->bindParam(":tipoCliente", $this->tipoCliente);
         $stmt->bindParam(":municipio", $this->municipio );
@@ -67,7 +67,8 @@ class Cliente{
 
         //ejecutando consulta
         if($stmt->execute()){
-            return true;
+            $row = $this->conn->lastInsertId();//fetch(PDO::FETCH_ASSOC);
+            return json_encode(array("id"=>$row)) ;
         }else{
             echo "<pre>";
             print_r($stmt->errorInfo());
@@ -80,7 +81,7 @@ class Cliente{
     function  readAll(){
         //creando el select de la consulta
         $query ="SELECT
-                id, idCliente, nombres, apellidos,edad,sexo,direccion,dui,nit,telefonoCasa,telefonoMovil,email,tipoCliente,municipio,departamento,foto_cliente,deleted,lastmodifiqued,fechaRegistro
+                *
 
                 FROM
                   " . $this->table_name . "

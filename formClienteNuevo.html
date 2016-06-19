@@ -1,0 +1,126 @@
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+        <form class="col s12 white">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input  id="first_name" type="text" class="validate" ng-model="nombres">
+                    <label for="first_name">Nombres</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate" ng-model="apellidos">
+                    <label for="last_name">Apellidos</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="edad" type="text" min="0" max="99" ng-model="edad">
+                    <label for="edad">Edad</label>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <select name="sexo" id="sexo" ng-model="sexo">
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="O">Otros</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="direccion"  name="direccion" cols="30" rows="10" class="materialize-textarea" ng-model="direccion"></textarea>
+                    <label for="direccion">Direccion</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="dui" type="text" class="validate" ng-model="dui" name="dui">
+                    <label for="dui">DUI</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input id="nit" type="text" class="validate"  ng-model="nit">
+                    <label for="nit">NIT</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="telefonoCasa" type="text" class="validate" pattern="[0-9]{8}" title="Solo puede introducir numeros de telefonos correctos" ng-model="telefonoCasa">
+                    <label for="telefonoCasa">Teléfono de Casa</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input id="telefonoMovil" type="text" class="validate" pattern="[0-9]{8}" ng-model="telefonoMovil">
+                    <label for="telefonoMovil">Teléfono Movil</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" ng-model="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+
+    </div>
+
+</div>
+<div class="col s6 teal white">
+    Debé completar cada uno de los campos, según se le pida la información
+    no es posible dejar campos vacíos a menos.
+    <img src="img/registrolateral.png" class="responsive-img" alt="">
+
+    <div class="input-field">
+        <select name="tipoCliente" id="tipocliente" ng-model="tipoCliente">
+            <option value="1">Persona</option>
+            <option value="2">Empresa</option>
+        </select>
+    </div>
+    <div class="input-field">
+        <select name="municipio" id="municipio" ng-model="municipio">
+            <option value="1">Ahuchapán</option>
+        </select>
+    </div>
+    <div class="input-field">
+        <select name="1departamento" id="departamento" ng-model="departamento">
+            <option value="1">Ahuchapán</option>
+        </select>
+    </div>
+    <div class="file-field input-field">
+        <div class="btn teal darken-4">
+            <span>File</span>
+            <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate " type="text" ng-model="foto_cliente">
+        </div>
+    </div>
+
+    <div class="file-field">
+        Fecha de Registro
+        <input class="datepicker" name="fechaRegistro" id="fechaRegistro" ng-model="fechaRegistro">
+
+    </div>
+
+    <button class="btn waves-effect waves-light teal darken-4 modal-trigger" type="submit" ng-click="guardarClientes()">
+        <i class="material-icons right">Enviar</i>
+    </button>
+</div>
+
+</div>
+</div>
+</form>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>

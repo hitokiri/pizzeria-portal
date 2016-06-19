@@ -11,13 +11,13 @@
     <!-- include material design CSS -->
     <link rel="stylesheet" href="libs/css/materialize/css/materialize.min.css" />
      
-    <!-- include material design icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- include material design icons
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
      
 </head>
 <!-- custom CSS -->
- <body ng-app="myModule">      
-        <div ng-controller="ctrlRead">
+ <body ng-app="myApp">
+        <div ng-controller="ctrlLeerClientes">
            
             
             <table class="table table-striped table-condensed table-hover">
@@ -25,11 +25,17 @@
 
                     <tr>
                         <th class="id" custom-sort order="'id'" sort="sort">Id&nbsp;</th>
-                        <th class="name" custom-sort order="'name'" sort="sort">Name&nbsp;</th>
-                        <th class="description" custom-sort order="'description'" sort="sort">Description&nbsp;</th>
-                        <th class="field3" custom-sort order="'field3'" sort="sort">Field 3&nbsp;</th>
-                        <th class="field4" custom-sort order="'field4'" sort="sort">Field 4&nbsp;</th>
-                        <th class="field5" custom-sort order="'field5'" sort="sort">Field 5&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">IdCliente&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">Nombres&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">Apelidos&nbsp;</th>
+                        <th class="name" custom-sort order="'description'" sort="sort">Edad&nbsp;</th>
+                        <th class="field3" custom-sort order="'field3'" sort="sort">Sexo&nbsp;</th>
+                        <th class="field4" custom-sort order="'field4'" sort="sort">Dirección&nbsp;</th>
+                        <th class="field5" custom-sort order="'field5'" sort="sort">Dui&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">NIT&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">Teléfono Casa&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">Teléfono Móvil&nbsp;</th>
+                        <th class="name" custom-sort order="'name'" sort="sort">Email&nbsp;</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -77,8 +83,10 @@
 <script src="libs/css/materialize/js/materialize.min.js"></script>
  
 <!-- include angular js -->
-<script src="libs/js/angular.min.js"></script>
-<script src="libs/js/tabla.js"></script>
+        <script src="lib/jquery-1.11.1.min.js"></script>
+        <script src="libs/js/angular.min.js"></script>
+        <script src="libs/js/Controller.js"></script>
+        <script src="libs/js/materialize.min.js"></script>
 <script>
 // angular js codes will be here
 
