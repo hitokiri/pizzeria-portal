@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+//error_reporting(E_ALL);
+//ini_set('display_errors', 'On');
 //incluyendo la base de datos y el objeto
 include_once 'config/database.php';
 include_once 'objects/product.php';
