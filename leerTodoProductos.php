@@ -20,10 +20,10 @@ $stmt = $Producto->readAll();
 $num = $stmt->rowCount();
 
 //verificando si hay mas de 0 registros encontrados
-
+$data = [];
+$data2 = [];
 if($num>0){
-    $data = [];
-    $dat2 = [];
+
     $x=1;
 
     //recibiendo el contenido
