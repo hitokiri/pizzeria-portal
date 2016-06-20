@@ -28,7 +28,7 @@ class Product {
                         " . $this->table_name . "
                     SET 
                         nombre=:nombre, precio=:precio, codigo_tipo=:codigo_tipo, descripcion_producto=:descripcion_producto, ingredientes=:ingredientes,
-                        img_producto=:img_producto,deletes=:deleted,lastmodfiqued=:lastmodifiqied";
+                        img_producto=:img_producto,deleted=:deleted,lastmodifiqued=:lastmodifiqued";
 
             // prepare query
             $stmt = $this->conn->prepare($query);
@@ -36,11 +36,12 @@ class Product {
             // bind values
             $stmt->bindParam(":nombre", $this->nombre);
             $stmt->bindParam(":precio", $this->precio);
-            $stmt->bindParam(":descripcion_producto", $this->descripcion_producto);
+            $stmt->bindParam(":codigo_tipo",$this->codigo_tipo);
+            $stmt->bindParam(":descripcion_producto",$this->descripcion_producto);
             $stmt->bindParam(":ingredientes", $this->ingredientes);
-            $stmt->binParam(":img_producto", $this->img_producto);
-            $stmt->binParam("deleted", $this->deleted);
-            $stmt->binParam("lastmodifiqued", $this->lastmodififiqued);
+            $stmt->bindParam(":img_producto", $this->img_producto);
+            $stmt->bindParam(":deleted", $this->deleted);
+            $stmt->bindParam(":lastmodifiqued", $this->lastmodifiqued);
 
             // execute query
             if($stmt->execute()){

@@ -221,6 +221,42 @@ $scope.deleteProduct = function(id){
 });
 
 app.controller('productosCtrl', function($scope, $http){
+    //funcion para limpiar los campos del formulario Productos
+    $scope.limpiarCampos=function(){
+        $scope.id="";
+        $scope.nombre="";
+        $scope.precio="";
+        $scope.codigo_tipo="";
+        $scope.descripcion_producto="";
+        $scope.ingredientes="";
+        $scope.img_producto="";
+        $scope.deleted="";
+        $scope.lastmodifiqued="";
+    }
+    //funcion para guardar los productos
+    $scope.guardarProductos=function(){
+        var productos={
+            "id":$scope.id,
+            "nombre":$scope.nombre,
+            "precio":$scope.precio,
+            "codigo_tipo":$scope.codigo_tipo,
+            "descripcion_producto":$scope.descripcion_producto,
+            "ingredientes":$scope.ingredientes,
+            "img_producto":$scope.img_producto,
+            "deleted":$scope.deleted,
+            "lastmodifiqued":$scope.lastmodifiqued
+        }
+        $http.post('http://localhost/pizzeria/guardar_producto.php',JSON.stringify(productos)
+        ).success(function (data, status, headers, config) {
+            console.log(data);
+            $scope.limpiarCampos();
+        }).error(function(data, status, headers, config){
+            console.log(data);
+        });
+    }
+
+
+
     //funcion para lectra de productos para listado
 
     $scope.leerTodosProductos=function(){
@@ -230,6 +266,7 @@ app.controller('productosCtrl', function($scope, $http){
                 console.log($scope.namess);
             });
     }
+
 });
 // jquery codes will be here
 

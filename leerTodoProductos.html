@@ -16,6 +16,16 @@
 
 </head>
 <body ng-app="myApp" ng-controller="productosCtrl">
+<nav>
+    <div class="nav-wrapper red accent-4">
+        <a href="Inicio.html" class="brand-logo">Inicio</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="inicio.html">Salir</a></li>
+
+
+        </ul>
+    </div>
+</nav>
 <style>
     .width-30-pct{
         width:30%;
@@ -46,7 +56,7 @@
                     <th>Nombre</th>
                     <th class="text-align-center">Precio</th>
                     <th class="text-align-center">Codigo_tipo</th>
-                    <th >Dirección</th>
+
                     <th class="text-align-center">Drescripcion</th>
                     <th class="text-align-center">Ingredientes</th>
                     <th class="text-align-center">Fecha de Borrado</th>
@@ -57,18 +67,18 @@
                 <tr ng-repeat="d in namess | filter:search"><!--ng-repeat es un foreach-->
                     <td  class="text-align-center">{{ d.id }}</td>
                     <!--<td>{{ d.idCliente }}</td> -->
-                    <td>{{ d.nombres }}</td>
+                    <td>{{ d.nombre }}</td>
 
-                    <td>{{d.apellidos}}</td>
-                    <td>{{d.edad}}</td>
-                    <td>{{d.sexo}}</td>
-                    <td>{{d.direccion}}</td>
-                    <td>{{d.dui}}</td>
-                    <td>{{d.nit}}</td>
-                    <td>{{d.telefonoCasa}}</td>
-                    <td>{{d.telefonoMovil}}</td>
+                    <td>{{d.precio}}</td>
+                    <td>{{d.codigo_tipo}}</td>
+                    <td>{{d.descripcion_producto}}</td>
+                    <td>{{d.ingredientes}}</td>
+                    <td>{{d.img_producto}}</td>
+                    <td>{{d.deleted}}</td>
+                    <td>{{d.lastmodifiqued}}</td>
+
                     <td>
-                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Editar</i>Editar</a>
+                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Editar></i>Editar</a>
                         <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Borrar</i>Borrar</a>
                     </td>
                 </tr>
@@ -76,7 +86,7 @@
             </table>
             <!-- floating button for creating product -->
             <div class="fixed-action-btn" style="bottom:45px; right:24px;">
-                <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal1" ng-click="showCreateForm()"><i class="large material-icons">+</i></a>
+                <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal1" ng-click="showCreateForm()"><i class="large material-icons">ADD</i></a>
             </div>
 
         </div> <!-- end col s12 -->

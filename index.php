@@ -71,8 +71,8 @@
                     <td>{{d.telefonoCasa}}</td>
                     <td>{{d.telefonoMovil}}</td>
                     <td>
-                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Editar</i>Editar</a>
-                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">Borrar</i>Borrar</a>
+                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-incons left">Editar</i>Editar</a>
+                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-incons left">Borrar</i>Borrar</a>
                     </td>
                 </tr>
                 </tbody>
