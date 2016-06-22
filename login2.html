@@ -19,19 +19,19 @@
 
         </div>
         <div class="card-content">
-            <form>
+            <form action="validar.php" method="post">
                 <div class="input-field col s12">
-                    <input id="usuario" type="text" class="validate">
+                    <input id="usuario" type="text" class="validate" name="usuario">
                     <label for="usuario">Usuario</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" class="validate" name="password">
                     <label for="password">Password</label>
                 </div>
                 <br>
                 <!--<input type="checkbox" class="filled-in" id="filled-in-box"/>
                 <label for="filled-in-box">Remember me</label>-->
-                <button type="button" id="mulai_login" name="mulai_login" class="btn blue-grey right waves-effect waves-light white-text">Ingresar</button>
+                <button type="submit" id="mulai_login" name="mulai_login" class="btn blue-grey right waves-effect waves-light white-text">Ingresar</button>
             </form>
         </div>
         <div class="card-action clearfix">

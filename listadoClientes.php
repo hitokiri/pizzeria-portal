@@ -16,7 +16,25 @@
      
 </head>
 <!-- custom CSS -->
-<body ng-app="myApp" ng-controller="clientesCtrl">
+<body ng-app="myApp" ng-controller="clientesCtrl" >
+<nav>
+    <div class="nav-wrapper red accent-4">
+        <a href="inicio.php" class="brand-logo">Inicio</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="leerTodoProductos.php">Buscar Productos</a></li>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="leerTodosClientes.php">Buscar Clientes</a></li>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="productos.php">Productos</a></li>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="saliendo.php">Salir</a></li>
+
+
+                        </ul>
+    </div>
+</nav>
 <style>
 .width-30-pct{
     width:30%;
@@ -38,9 +56,13 @@
             <h4>LISTADO DE CLIENTES</h4>
 <!-- used for searching the current list -->
 <input type="text" ng-model="search" class="form-control" placeholder="Buscar Cliente...">
- 
+ <!--modal llamada -->
+
+            <div ng-show="estado=='formulario'" editar-clientes>
+
+            </div>
 <!-- table that shows product record list -->
-            <table class="hoverable bordered" ng-init="leerTodosClientes()">
+            <table ng-show="estado=='lista'" class="hoverable bordered" ng-init="leerTodosClientes()">
                 <thead>
                 <tr>
                     <th class="text-align-center">ID</th>
@@ -71,7 +93,7 @@
                     <td>{{d.telefonoCasa}}</td>
                     <td>{{d.telefonoMovil}}</td>
                     <td>
-                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-incons left">Editar</i>Editar</a>
+                        <a ng-click="editarCliente(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-incons left">Editar</i>Editar</a>
                         <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-incons left">Borrar</i>Borrar</a>
                     </td>
                 </tr>
@@ -103,7 +125,7 @@
             <div class="input-field col s12">
                 <a id="btn-create-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="createProduct()"><i class="material-icons left">add</i>Create</a>
                  
-                <a id="btn-update-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="updateProduct()"><i class="material-icons left">edit</i>Save Changes</a>
+                <a id="btn-update-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="editarCliente(id)"><i class="material-icons left">edit</i>Save Changes</a>
                  
                 <a class="modal-action modal-close waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">close</i>Close</a>
             </div>

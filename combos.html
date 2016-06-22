@@ -11,73 +11,29 @@
 <body class="fondoCliente" ng-app="myApp" ng-controller="productosCtrl" ng-init="limpiarCampos()">
 <nav>
     <div class="nav-wrapper red accent-4">
-        <a href="#" class="brand-logo">Inicio</a>
+        <a href="inicio.php" class="brand-logo">Inicio</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Salir</a></li>
+            <li><a href="listadoProductos.php">Buscar Productos</a></li>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="listadoClientes.php">Buscar Clientes</a></li>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="productos.php">Productos</a></li>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="saliendo.php">Salir</a></li>
 
 
-        </ul>
+                        </ul>
     </div>
 </nav>
 <div class="container">
     <div class="row">
-        <div class="col s12  teal darken-4" ><span class=" white-text text-white tituloFormulario" size="30">REGISTRO DE COMBOS</span></div>
+        <div class="col s12  teal darken-4" ><span class=" white-text text-white tituloFormulario" size="30">REGISTRO DE PRODUCTOS</span>
+        </div>
 
-        <div class="col s12 teal white">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input  id="nombre" type="text" class="validate" ng-model="nombre">
-                    <label for="nombre">Nombre del Combo</label>
-                </div>
-                <div class="input-field col s6">
-                    <input  id="precio" type="text" class="validate" ng-model="nombre">
-                    <label for="precio">Precio del Combo</label>
-                </div>
-                <div class="input-field col s12">
-                    <select id="codigo_tipo" ng-model="codigo_tipo">
-                        <option value=""> Elija producto</option>
-                        <option value="1">Pizza Personal</option>
-                        <option value="2">Pizza Gigante</option>
-                        <option value="3">Lasagna de Queso</option>
-                    </select>
-                    <label>Clasificacion del Producto</label>
-                </div>
+        <div class="col s6 teal white">
 
-                <div class="input-field col s12">
-                    <textarea id="descripcion_producto"  name="descripcion_producto" cols="30" rows="10" class="materialize-textarea" ng-model="descripcion_producto"></textarea>
-                    <label for="descripcion_producto">Descripcion</label>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="ingredientes"  name="ingredientes" cols="30" rows="10" class="materialize-textarea" ng-model="ingredientes"></textarea>
-                    <label for="ingredientes">Ingredientes</label>
-                </div>
-
-                <div class="input-field col s12">
-                    <select id="codigo_tipo" ng-model="codigo_tipo">
-                        <option value=""> Elija producto</option>
-                        <option value="1">Pizza Personal</option>
-                        <option value="2">Pizza Gigante</option>
-                        <option value="3">Bebida Gaseosa</option>
-                    </select>
-                    <label>Tipo de Producto</label>
-                </div>
-            </div>
-
-            <div class="file-field input-field">
-                <div class="btn teal darken-4">
-                    <span>File</span>
-                    <input type="file">
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate " type="text" ng-model="img_producto">
-                </div>
-            </div>
-            <div class="center-align">
-
-                <button class="btn waves-effect waves-light teal darken-4" type="submit" ng-click="guardarProductos()">
-                    <i class="material-icons right">Enviar</i>
-                </button>
-            </div>
         </div>
 
     </div>
@@ -99,4 +55,4 @@
     });
 </script>
 </body>
-</html>>
+</html>

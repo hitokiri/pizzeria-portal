@@ -98,7 +98,7 @@ class Cliente{
     //leer un solo producto para actualizarlo desde el form
     function  readOne(){
         $query = "SELECT
-                id, idCliente, nombres,apellidos,edad, sexo direccion, dui, nit, telefonoCasa,telefonoMovil, email, tipoCliente,  municipio, departamento, foto_cliente, deleted,lastmodifiqued,fechaRegistro
+                id, idCliente, nombres,apellidos,edad, sexo, direccion, dui, nit, telefonoCasa,telefonoMovil, email, tipoCliente,  municipio, departamento, foto_cliente, deleted,lastmodifiqued,fechaRegistro
                 FROM
                 ". $this->table_name. "
                 WHERE
@@ -113,14 +113,14 @@ class Cliente{
 
         //ejecutando la query
 
-        $stmt->exceute();
+        $stmt->execute();
 
         //reciviendo el registro
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         //Setiando los valores del objeto recibido
-
+        $this->id=$row['id'];
         $this->idCliente=$row['idCliente'];
         $this->nombres=$row['nombres'];
         $this->apellidos=$row['apellidos'];

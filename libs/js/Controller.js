@@ -1,6 +1,11 @@
 var app = angular.module('myApp', []);
-
+app.directive("editarClientes",function(){
+   return {
+      templateUrl:"http://localhost/pizzeria/formClienteNuevo.html"
+   } ;
+});
 app.controller('clientesCtrl', function($scope, $http) {
+    $scope.estado="formulario";
     $scope.limpiarCampos=function(){
     $scope.id="";
     $scope.idCliente="";
@@ -49,6 +54,7 @@ app.controller('clientesCtrl', function($scope, $http) {
         ).success(function (data, status, headers, config) {
             console.log(data);
             $scope.limpiarCampos();
+            location.href="listadoClientes.php";
         }).error(function(data, status, headers, config){
             console.log(data);
         });
@@ -64,6 +70,40 @@ app.controller('clientesCtrl', function($scope, $http) {
             });
     }
 
+    $scope.editarCliente= function (id) {
+
+        var data={
+            "id":id,
+        }
+        $http.post('http://localhost/pizzeria/read_onecliente.php',JSON.stringify(data)
+        ).success(function (data, status, headers, config) {
+            $scope.id=data.record.id;
+            $scope.idCliente=data.record.idCliente;
+            $scope.nombres=data.record.nombres;
+            $scope.apellidos=data.record.apellidos;
+            $scope.edad=data.record.edad;
+            $scope.sexo=data.record.sexo;
+            $scope.direccion=data.record.direccion;
+            $scope.dui=data.record.dui;
+            $scope.nit=data.record.nit;
+            $scope.telefonoCasa=data.record.telefonoCasa;
+            $scope.telefonoMovil=data.record.telefonoMovil;
+            $scope.email=data.record.email;
+            $scope.tipoCliente=data.record.tipoCliente;
+            $scope.municipio=data.record.municipio;
+            $scope.departamento=data.record.departamento;
+            $scope.foto_cliente=data.record.foto_cliente;
+            $scope.deleted=data.record.deleted;
+            $scope.lastmodifiqued=data.record.lastmodifiqued;
+            $scope.fechaRegistro=data.record.fechaRegistro;
+            $scope.estado='formulario';
+            console.log(data);
+            //$scope.limpiarCampos();
+            //location.href="listadoClientes.php";
+        }).error(function(data, status, headers, config){
+            console.log(data);
+        });
+    }
 
  /*   $scope.id = "";
     $scope.name = "";
@@ -250,6 +290,7 @@ app.controller('productosCtrl', function($scope, $http){
         ).success(function (data, status, headers, config) {
             console.log(data);
             $scope.limpiarCampos();
+            location.href="listadoProductos.php";
         }).error(function(data, status, headers, config){
             console.log(data);
         });

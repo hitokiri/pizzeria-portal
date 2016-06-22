@@ -11,12 +11,20 @@
 <body class="fondoCliente" ng-app="myApp" ng-controller="clientesCtrl" ng-init="limpiarCampos()">
 <nav>
     <div class="nav-wrapper red accent-4">
-        <a href="Inicio.html" class="brand-logo">Inicio</a>
+        <a href="inicio.php" class="brand-logo">Inicio</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="inicio.html">Salir</a></li>
+            <li><a href="listadoProductos.php">Buscar Productos</a></li>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="listadoClientes.php">Buscar Clientes</a></li>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="productos.php">Productos</a></li>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="saliendo.php">Salir</a></li>
 
 
-        </ul>
+                        </ul>
     </div>
 </nav>
 <div class="container">
