@@ -50,7 +50,7 @@ app.controller('clientesCtrl', function($scope, $http) {
             "lastmodifiqued":$scope.lastmodifiqued,
             "fechaRegistro":$scope.fechaRegistro
         }
-        $http.post('http://localhost/pizzeria/guardar_cliente.php',JSON.stringify(clientes)
+        $http.post('/pizzeria/guardar_cliente.php',JSON.stringify(clientes)
         ).success(function (data, status, headers, config) {
             console.log(data);
             $scope.limpiarCampos();
@@ -62,7 +62,7 @@ app.controller('clientesCtrl', function($scope, $http) {
 
     //funcion para lectura de todos los clientes
     $scope.leerTodosClientes=function(){
-       $http.get("http://localhost/pizzeria/leerTodosClientes.php")
+       $http.get("/pizzeria/leerTodosClientes.php")
 
             .success(function(response){
                 $scope.namess = response.record;
@@ -75,7 +75,7 @@ app.controller('clientesCtrl', function($scope, $http) {
         var data={
             "id":id,
         }
-        $http.post('http://localhost/pizzeria/read_onecliente.php',JSON.stringify(data)
+        $http.post('/pizzeria/read_onecliente.php',JSON.stringify(data)
         ).success(function (data, status, headers, config) {
             $scope.id=data.record.id;
             $scope.idCliente=data.record.idCliente;
@@ -286,7 +286,7 @@ app.controller('productosCtrl', function($scope, $http){
             "deleted":$scope.deleted,
             "lastmodifiqued":$scope.lastmodifiqued
         }
-        $http.post('http://localhost/pizzeria/guardar_producto.php',JSON.stringify(productos)
+        $http.post('/pizzeria/guardar_producto.php',JSON.stringify(productos)
         ).success(function (data, status, headers, config) {
             console.log(data);
             $scope.limpiarCampos();
@@ -301,7 +301,7 @@ app.controller('productosCtrl', function($scope, $http){
     //funcion para lectra de productos para listado
 
     $scope.leerTodosProductos=function(){
-        $http.get("http://localhost/pizzeria/leerTodoProductos.php")
+        $http.get("/pizzeria/leerTodoProductos.php")
             .success(function(response){
                 $scope.namess = response.record;
                 console.log($scope.namess);
